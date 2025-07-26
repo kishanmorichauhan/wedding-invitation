@@ -1,0 +1,1160 @@
+/* Traditional Gujarati Wedding Website Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans Gujarati', sans-serif;
+    background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 30%, #ffd54f 70%, #ffb300 100%);
+    color: #2e2e2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23d4af37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(45deg, #d4af37, #ffd700, #ffb300, #d4af37);
+    background-size: 400% 400%;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.4);
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.mandala-border {
+    position: relative;
+    padding: 2rem;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mandala" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="%23d4af37" opacity="0.3"/><circle cx="10" cy="10" r="4" fill="none" stroke="%23d4af37" stroke-width="0.5" opacity="0.2"/><path d="M10 2L12 8L18 10L12 12L10 18L8 12L2 10L8 8Z" fill="%23d4af37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23mandala)"/></svg>');
+    border-radius: 20px;
+    margin: 0 1rem;
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.ganesh-photo, .kalash-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ganesh-photo {
+    left: 2rem;
+}
+
+.ganesh-video {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #8b4513;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4), 0 0 30px 10px #ffd70080;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    animation: ganeshGlow 2.5s infinite alternate, ganeshPulse 3s infinite;
+}
+
+@keyframes ganeshGlow {
+    0% {
+        box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4), 0 0 10px 2px #ffd70080;
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4), 0 0 40px 16px #ffd700cc;
+    }
+}
+
+@keyframes ganeshPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+.ganesh-video:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.6);
+}
+
+.kalash-icon {
+    font-size: 2rem;
+    right: 2rem;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #8b4513;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2), 0 0 20px rgba(212, 175, 55, 0.5);
+    margin: 0;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from { text-shadow: 3px 3px 6px rgba(0,0,0,0.2), 0 0 20px rgba(212, 175, 55, 0.5); }
+    to { text-shadow: 3px 3px 6px rgba(0,0,0,0.2), 0 0 30px rgba(212, 175, 55, 0.8); }
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Prayer Section */
+.prayer-section {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.1));
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.prayer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="om" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><text x="15" y="20" font-family="Arial" font-size="12" fill="%23d4af37" opacity="0.1">ॐ</text></pattern></defs><rect width="100" height="100" fill="url(%23om)"/></svg>');
+    pointer-events: none;
+}
+
+.prayer-content {
+    position: relative;
+    z-index: 1;
+}
+
+.prayer-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #8b4513;
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Traditional Invitation Section */
+.traditional-invitation-section {
+    background: linear-gradient(135deg, #f5f5dc 0%, #fff8e1 50%, #f5f5dc 100%);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 15px 45px rgba(139, 69, 19, 0.3), 0 0 30px rgba(212, 175, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.traditional-invitation-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M20 10C22 12 24 14 26 16C24 18 22 20 20 22C18 20 16 18 14 16C16 14 18 12 20 10Z" fill="%23d4af37" opacity="0.1"/><circle cx="20" cy="20" r="2" fill="%23d4af37" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
+    pointer-events: none;
+}
+
+.invitation-card {
+    position: relative;
+    z-index: 1;
+    color: #8b4513;
+}
+
+.opening-prayer {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    border-bottom: 2px solid #d4af37;
+}
+
+.opening-prayer p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.wedding-pair {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 248, 225, 0.8) 100%);
+    border-radius: 20px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.wedding-pair::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.wedding-pair:hover::before {
+    left: 100%;
+}
+
+.wedding-pair:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+}
+
+.second-wedding {
+    margin-top: 3rem;
+    border-top: 3px solid #d4af37;
+    padding-top: 3rem;
+}
+
+.groom-side, .bride-side {
+    text-align: center;
+}
+
+.parent-info {
+    margin-bottom: 1rem;
+}
+
+.parent-info p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    margin: 0;
+    font-style: italic;
+}
+
+.person-name h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #8b4513;
+    margin: 0;
+    text-shadow: 3px 3px 6px rgba(212, 175, 55, 0.4), 0 0 15px rgba(212, 175, 55, 0.3);
+    letter-spacing: 2px;
+    animation: nameGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+    from { text-shadow: 3px 3px 6px rgba(212, 175, 55, 0.4), 0 0 15px rgba(212, 175, 55, 0.3); }
+    to { text-shadow: 3px 3px 6px rgba(212, 175, 55, 0.6), 0 0 25px rgba(212, 175, 55, 0.5); }
+}
+
+.wedding-symbol {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hands-illustration {
+    font-size: 3.5rem;
+    color: #d4af37;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+    animation: handsPulse 2s ease-in-out infinite;
+}
+
+@keyframes handsPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.wedding-symbol p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #8b4513;
+    margin: 0;
+}
+
+.wedding-details {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+    border-radius: 15px;
+    border-left: 4px solid #d4af37;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.wedding-details:hover {
+    transform: translateX(5px);
+}
+
+.wedding-details p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2e2e2e;
+    margin: 0;
+    text-align: justify;
+    text-align-last: center;
+}
+
+
+
+
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 3rem 0;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="floral" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M12.5 2.5C15 5 17.5 7.5 20 10C17.5 12.5 15 15 12.5 17.5C10 15 7.5 12.5 5 10C7.5 7.5 10 5 12.5 2.5Z" fill="%23d4af37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23floral)"/></svg>');
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #8b4513;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wedding Couples */
+.wedding-couples {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.couple-card {
+    background: linear-gradient(135deg, #d4af37, #ffd700);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    min-width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.couple-card:hover {
+    transform: translateY(-5px);
+}
+
+.couple-names {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #8b4513;
+    margin-bottom: 0.5rem;
+}
+
+.wedding-date {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.venue-info {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #8b4513;
+}
+
+/* Countdown Section */
+.countdown-section {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 225, 0.9) 100%);
+    border-radius: 25px;
+    margin-bottom: 3rem;
+    box-shadow: 0 15px 45px rgba(212, 175, 55, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #8b4513;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37, #ffd700);
+    border-radius: 2px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    text-align: center;
+    min-width: 120px;
+}
+
+.countdown-number {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #d4af37;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2), 0 0 15px rgba(212, 175, 55, 0.3);
+    animation: countdownPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes countdownPulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+.countdown-label {
+    font-size: 1rem;
+    color: #8b4513;
+    font-weight: 500;
+}
+
+/* Schedule Section */
+.schedule-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 225, 0.9) 100%);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 15px 45px rgba(212, 175, 55, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.schedule-container {
+    display: grid;
+    gap: 2rem;
+}
+
+.schedule-day {
+    background: linear-gradient(135deg, #fff8e1, #ffecb3);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid #d4af37;
+}
+
+.day-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #8b4513;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.event-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 248, 225, 0.6) 100%);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1);
+}
+
+.event-item:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(255, 215, 0, 0.1) 100%);
+}
+
+.event-item:hover span {
+    color: #8b4513;
+    font-weight: 600;
+}
+
+.event-item:hover i {
+    color: #8b4513;
+}
+
+.event-item i {
+    font-size: 1.2rem;
+    color: #d4af37;
+    width: 30px;
+    text-align: center;
+}
+
+.event-item span {
+    font-size: 1rem;
+    color: #2e2e2e;
+    font-weight: 500;
+}
+
+.wedding-event {
+    background: linear-gradient(135deg, #d4af37, #ffd700);
+    color: #fff;
+}
+
+.wedding-event span {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Venue Section */
+.venue-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 225, 0.9) 100%);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 15px 45px rgba(212, 175, 55, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.venue-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.venue-details h3 {
+    font-size: 1.5rem;
+    color: #8b4513;
+    margin-bottom: 1.5rem;
+}
+
+.venue-details p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #2e2e2e;
+}
+
+.venue-details i {
+    color: #d4af37;
+    width: 20px;
+}
+
+.map-container {
+    background: linear-gradient(135deg, #f5f5f5 0%, #fff8e1 100%);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px dashed #d4af37;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.map-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+}
+
+.map-simple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.map-icon {
+    font-size: 3rem;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+}
+
+.map-simple h3 {
+    font-size: 1.3rem;
+    color: #8b4513;
+    margin: 0;
+    font-weight: 600;
+}
+
+.map-link-btn {
+    background: linear-gradient(135deg, #d4af37, #ffd700, #ffb300);
+    background-size: 200% 200%;
+    color: #fff;
+    text-decoration: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans Gujarati', sans-serif;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    animation: buttonGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes buttonGlow {
+    from { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+    to { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5), 0 0 15px rgba(212, 175, 55, 0.3); }
+}
+
+.map-link-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.4);
+    color: #fff;
+    background-position: right center;
+}
+
+.map-link-btn i {
+    font-size: 1rem;
+}
+
+
+
+/* Floating Decorations */
+.floating-decoration {
+    position: fixed;
+    font-size: 2rem;
+    color: rgba(212, 175, 55, 0.3);
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-decoration:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.floating-decoration:nth-child(2) {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.floating-decoration:nth-child(3) {
+    bottom: 30%;
+    left: 15%;
+    animation-delay: 4s;
+}
+
+.floating-decoration:nth-child(4) {
+    bottom: 20%;
+    right: 5%;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(45deg, #8b4513, #d4af37);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.5rem;
+}
+
+.footer-decoration span, .floating-decoration {
+    display: inline-block;
+    animation: floatIcon 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatIcon {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-18px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 1.8rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .header {
+        padding: 1.5rem 0;
+    }
+    
+    .mandala-border {
+        margin: 0 0.5rem;
+        padding: 1.5rem;
+    }
+    
+    .ganesh-photo {
+        left: 1rem;
+    }
+    
+    .ganesh-video {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .kalash-icon {
+        font-size: 1.8rem;
+        right: 1rem;
+    }
+    
+    .prayer-text {
+        font-size: 1.3rem;
+        padding: 0 1rem;
+    }
+    
+    .traditional-invitation-section {
+        padding: 1rem 0.8rem;
+        margin: 0 0.3rem 1.5rem 0.3rem;
+    }
+    
+    .wedding-pair {
+        grid-template-columns: 1fr auto 1fr;
+        gap: 0.8rem;
+        text-align: center;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .wedding-symbol {
+        order: 0;
+        margin-bottom: 0;
+    }
+    
+    .hands-illustration {
+        font-size: 1.6rem;
+    }
+    
+    .person-name h3 {
+        font-size: 1.2rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .parent-info p {
+        font-size: 0.8rem;
+        line-height: 1.3;
+        margin-bottom: 0.3rem;
+    }
+    
+    .wedding-details {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    
+    .wedding-details p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+    
+    .schedule-section,
+    .venue-section,
+    .countdown-section {
+        padding: 1.5rem 0.8rem;
+        margin: 0 0.3rem 1.5rem 0.3rem;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .day-title {
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
+    
+    .event-item {
+        padding: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .event-item span {
+        font-size: 0.8rem;
+    }
+    
+    .event-item i {
+        font-size: 0.9rem;
+        width: 20px;
+    }
+    
+    .venue-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .venue-details h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .venue-details p {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .map-container {
+        padding: 0.8rem;
+    }
+    
+    .map-simple h3 {
+        font-size: 1rem;
+    }
+    
+    .map-link-btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .countdown-timer {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem;
+    }
+    
+    .floating-decoration {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.4rem;
+        padding: 0 0.5rem;
+    }
+    
+    .header {
+        padding: 1rem 0;
+    }
+    
+    .mandala-border {
+        margin: 0 0.3rem;
+        padding: 1rem;
+    }
+    
+    .ganesh-photo {
+        left: 0.5rem;
+    }
+    
+    .ganesh-video {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .kalash-icon {
+        font-size: 1.5rem;
+        right: 0.5rem;
+    }
+    
+    .prayer-text {
+        font-size: 1.2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .traditional-invitation-section {
+        padding: 1rem 0.5rem;
+        margin: 0 0.3rem 1.5rem 0.3rem;
+    }
+    
+    .wedding-pair {
+        grid-template-columns: 1fr auto 1fr;
+        padding: 0.8rem;
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .person-name h3 {
+        font-size: 1.1rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .hands-illustration {
+        font-size: 1.3rem;
+    }
+    
+    .parent-info p {
+        font-size: 0.75rem;
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+    }
+    
+    .wedding-details {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    
+    .wedding-details p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    .schedule-section,
+    .venue-section,
+    .countdown-section {
+        padding: 1.5rem 0.5rem;
+        margin: 0 0.3rem 1.5rem 0.3rem;
+    }
+    
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .day-title {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+    
+    .event-item {
+        padding: 0.6rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .event-item span {
+        font-size: 0.75rem;
+    }
+    
+    .event-item i {
+        font-size: 0.8rem;
+        width: 18px;
+    }
+    
+    .venue-details h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .venue-details p {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .map-container {
+        padding: 0.8rem;
+    }
+    
+    .map-simple h3 {
+        font-size: 1rem;
+    }
+    
+    .map-link-btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .countdown-timer {
+        gap: 0.5rem;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+    }
+    
+    .countdown-number {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.6rem;
+    }
+    
+    .floating-decoration {
+        font-size: 1.2rem;
+    }
+    
+    .opening-prayer p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+    /* Better touch targets */
+    .event-item,
+    .map-link-btn,
+    .wedding-pair {
+        min-height: 44px; /* Minimum touch target size */
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    .floating-decoration {
+        animation: float 8s ease-in-out infinite;
+    }
+    
+    /* Improve scrolling */
+    .main-content {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Better spacing for mobile */
+    .main-content > section {
+        margin-bottom: 2rem;
+    }
+    
+    /* Optimize hover effects for touch devices */
+    .event-item:hover,
+    .wedding-pair:hover,
+    .map-container:hover {
+        transform: none;
+    }
+    
+    .event-item:active,
+    .wedding-pair:active,
+    .map-container:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-section,
+.countdown-section,
+.schedule-section,
+.venue-section,
+.blessings-section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.main-title, .prayer-text {
+    background: none;
+    color: #8b4513;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px #ffd700, 0 0 4px #fffbe6;
+    animation: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffd700;
+} 
