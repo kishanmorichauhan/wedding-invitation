@@ -53,25 +53,50 @@ body::before {
     border: 2px solid rgba(212, 175, 55, 0.2);
 }
 
-.ganesh-photo, .kalash-icon {
+.kalash-icon {
     position: absolute;
     top: 50%;
+    right: 2rem;
     transform: translateY(-50%);
 }
 
-.ganesh-photo {
-    left: 2rem;
-}
-
-.ganesh-video {
-    width: 120px;
-    height: 120px;
+.ganesh-image {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    border: 3px solid #8b4513;
+    border: none;
     box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4), 0 0 30px 10px #ffd70080;
     object-fit: cover;
     transition: transform 0.3s ease;
-    animation: ganeshGlow 2.5s infinite alternate, ganeshPulse 3s infinite;
+    animation: ganeshGlow 2.5s infinite alternate, ganeshPulse 3s infinite, rippleEffect 4s infinite;
+    position: relative;
+}
+
+/* Ripple animation for Ganapati image */
+.ganesh-image::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid #ffd700;
+    border-radius: 50%;
+    animation: ripple 2s infinite;
+    pointer-events: none;
+}
+
+.ganesh-image::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border: 1px solid #d4af37;
+    border-radius: 50%;
+    animation: ripple 2s infinite 0.5s;
+    pointer-events: none;
 }
 
 @keyframes ganeshGlow {
@@ -92,9 +117,30 @@ body::before {
     }
 }
 
-.ganesh-video:hover {
+.ganesh-image:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(139, 69, 19, 0.6);
+}
+
+/* Ripple animation keyframes */
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes rippleEffect {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4), 0 0 30px 10px #ffd70080;
+    }
+    50% {
+        box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4), 0 0 50px 20px #ffd700cc, 0 0 70px 30px rgba(212, 175, 55, 0.3);
+    }
 }
 
 .kalash-icon {
@@ -123,13 +169,25 @@ body::before {
     padding: 2rem 1rem;
 }
 
-/* Prayer Section */
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 2rem 1rem 0 1rem;
+    }
+}
+
+/* Modern Prayer Section */
 .prayer-section {
     text-align: center;
-    padding: 2rem 0;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.1));
-    margin-bottom: 2rem;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 225, 0.9) 100%);
+    margin-bottom: 3rem;
     position: relative;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2), 0 0 40px rgba(212, 175, 55, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
 }
 
 .prayer-section::before {
@@ -139,22 +197,89 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="om" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><text x="15" y="20" font-family="Arial" font-size="12" fill="%23d4af37" opacity="0.1">ॐ</text></pattern></defs><rect width="100" height="100" fill="url(%23om)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="om" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><text x="20" y="25" font-family="Arial" font-size="15" fill="%23d4af37" opacity="0.08">ॐ</text></pattern></defs><rect width="100" height="100" fill="url(%23om)"/></svg>');
     pointer-events: none;
 }
 
 .prayer-content {
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ganapati-container {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.ganapati-container::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: containerGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes containerGlow {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
 }
 
 .prayer-text {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #8b4513;
-    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+    text-shadow: 3px 3px 8px rgba(212, 175, 55, 0.4), 0 0 20px rgba(212, 175, 55, 0.3);
     margin: 0;
     letter-spacing: 2px;
+    animation: prayerGlow 4s ease-in-out infinite alternate;
+    position: relative;
+}
+
+.prayer-text::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    right: -20px;
+    bottom: -10px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.05));
+    border-radius: 15px;
+    z-index: -1;
+    animation: textBackground 3s ease-in-out infinite alternate;
+}
+
+@keyframes prayerGlow {
+    0% {
+        text-shadow: 3px 3px 8px rgba(212, 175, 55, 0.4), 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+    100% {
+        text-shadow: 3px 3px 8px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
+    }
+}
+
+@keyframes textBackground {
+    0% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(1.02);
+    }
 }
 
 /* Traditional Invitation Section */
@@ -430,11 +555,11 @@ body::before {
 /* Countdown Section */
 .countdown-section {
     text-align: center;
-    padding: 3rem 0;
+    padding: 2rem 1.5rem;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 225, 0.9) 100%);
-    border-radius: 25px;
-    margin-bottom: 3rem;
-    box-shadow: 0 15px 45px rgba(212, 175, 55, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25), 0 0 20px rgba(212, 175, 55, 0.1);
     border: 2px solid rgba(212, 175, 55, 0.2);
     backdrop-filter: blur(10px);
 }
@@ -580,10 +705,10 @@ body::before {
 /* Venue Section */
 .venue-section {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 225, 0.9) 100%);
-    border-radius: 25px;
-    padding: 3rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 15px 45px rgba(212, 175, 55, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25), 0 0 20px rgba(212, 175, 55, 0.1);
     border: 2px solid rgba(212, 175, 55, 0.2);
     backdrop-filter: blur(10px);
 }
@@ -604,24 +729,19 @@ body::before {
 .venue-details p {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 0.3rem;
+    margin-bottom: 0.8rem;
     font-size: 1rem;
     color: #2e2e2e;
 }
 
-.venue-details i {
-    color: #d4af37;
-    width: 20px;
-}
-
 .map-container {
     background: linear-gradient(135deg, #f5f5f5 0%, #fff8e1 100%);
-    border-radius: 20px;
-    padding: 1.5rem;
+    border-radius: 15px;
+    padding: 1.2rem;
     text-align: center;
     border: 2px dashed #d4af37;
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.15);
     transition: transform 0.3s ease;
 }
 
@@ -634,13 +754,13 @@ body::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .map-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #d4af37;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .map-simple h3 {
@@ -762,6 +882,293 @@ body::before {
     100% { transform: translateY(-18px); }
 }
 
+/* Mameru Section */
+.mameru-section {
+    padding: 1.5rem 1rem;
+    background: linear-gradient(135deg, rgba(255, 248, 225, 0.9) 0%, rgba(255, 236, 179, 0.9) 100%);
+    position: relative;
+    margin: 0.5rem 0;
+}
+
+.mameru-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mameru-pattern" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="1" fill="%23d4af37" opacity="0.08"/><path d="M12.5 3L14 9L20 12.5L14 16L12.5 22L11 16L5 12.5L11 9Z" fill="%23d4af37" opacity="0.04"/></pattern></defs><rect width="100" height="100" fill="url(%23mameru-pattern)"/></svg>');
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mameru-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.mameru-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #8b4513;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.mameru-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.mameru-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #8b4513;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.mameru-names {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2e2e2e;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.mameru-subtext {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Sweet Melody Section */
+.sweet-melody-section {
+    padding: 1.5rem 1rem;
+    background: linear-gradient(135deg, rgba(255, 248, 225, 0.9) 0%, rgba(255, 236, 179, 0.9) 100%);
+    position: relative;
+    margin: 0.5rem 0;
+}
+
+.sweet-melody-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="melody-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.8" fill="%23d4af37" opacity="0.06"/><path d="M10 2L11.5 7L17 10L11.5 13L10 18L8.5 13L3 10L8.5 7Z" fill="%23d4af37" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23melody-pattern)"/></svg>');
+    pointer-events: none;
+    z-index: 0;
+}
+
+.sweet-melody-container {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.sweet-melody-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #8b4513;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.sweet-melody-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.8rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.poem-lines {
+    margin-bottom: 1.5rem;
+}
+
+.poem-line {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2e2e2e;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.poem-line:last-child {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #8b4513;
+}
+
+.signature-names {
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    padding-top: 1rem;
+}
+
+.names-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d4af37;
+    line-height: 1.3;
+}
+
+/* Family Names Section */
+.family-section {
+    padding: 1.5rem 1rem;
+    background: linear-gradient(135deg, rgba(255, 248, 225, 0.9) 0%, rgba(255, 236, 179, 0.9) 100%);
+    position: relative;
+    margin: 0.5rem 0;
+}
+
+.family-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="family-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1" fill="%23d4af37" opacity="0.1"/><path d="M15 5L17 12L24 15L17 18L15 25L13 18L6 15L13 12Z" fill="%23d4af37" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23family-pattern)"/></svg>');
+    pointer-events: none;
+    z-index: 0;
+}
+
+.family-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.family-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #8b4513;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
+    position: relative;
+}
+
+.family-heading::before,
+.family-heading::after {
+    content: '🌸';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+.family-heading::before {
+    left: -3rem;
+}
+
+.family-heading::after {
+    right: -3rem;
+}
+
+.family-names {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.family-column {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.2);
+    border: 2px solid rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.family-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+}
+
+.family-member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(255, 248, 225, 0.5) 0%, rgba(255, 236, 179, 0.5) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+}
+
+.family-member:hover {
+    background: linear-gradient(135deg, rgba(255, 248, 225, 0.8) 0%, rgba(255, 236, 179, 0.8) 100%);
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.family-member:last-child {
+    margin-bottom: 0;
+}
+
+.honorific {
+    font-weight: 600;
+    color: #d4af37;
+    margin-right: 0.3rem;
+    font-size: 1rem;
+    min-width: auto;
+    text-align: left;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+}
+
+.name {
+    font-size: 1.1rem;
+    color: #2e2e2e;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.family-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.namaste-icon {
+    font-size: 2.5rem;
+    animation: namastePulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 3px 6px rgba(212, 175, 55, 0.3));
+}
+
+@keyframes namastePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-title {
@@ -779,13 +1186,13 @@ body::before {
         padding: 1.5rem;
     }
     
-    .ganesh-photo {
-        left: 1rem;
+    .ganapati-container {
+        margin-bottom: 0.2rem;
     }
     
-    .ganesh-video {
-        width: 80px;
-        height: 80px;
+    .ganesh-image {
+        width: 70px;
+        height: 70px;
     }
     
     .kalash-icon {
@@ -793,9 +1200,32 @@ body::before {
         right: 1rem;
     }
     
+    .prayer-section {
+        padding: 1.2rem 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .prayer-content {
+        gap: 0.8rem;
+    }
+    
+    .ganapati-container::before {
+        top: -20px;
+        left: -20px;
+        right: -20px;
+        bottom: -20px;
+    }
+    
     .prayer-text {
-        font-size: 1.3rem;
-        padding: 0 1rem;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .prayer-text::before {
+        top: -8px;
+        left: -15px;
+        right: -15px;
+        bottom: -8px;
     }
     
     .traditional-invitation-section {
@@ -875,7 +1305,7 @@ body::before {
     
     .venue-content {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 0rem;
     }
     
     .venue-details h3 {
@@ -921,6 +1351,112 @@ body::before {
     .floating-decoration {
         font-size: 1.5rem;
     }
+    
+    .mameru-heading {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .mameru-content {
+        padding: 1.2rem;
+    }
+    
+    .mameru-text {
+        font-size: 1.1rem;
+    }
+    
+    .mameru-names {
+        font-size: 1rem;
+    }
+    
+    .mameru-subtext {
+        font-size: 0.95rem;
+    }
+    
+    .sweet-melody-heading {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .sweet-melody-content {
+        padding: 1.2rem;
+    }
+    
+    .poem-line {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .names-text {
+        font-size: 0.9rem;
+    }
+    
+    .family-names {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: space-between;
+    }
+    
+    .family-column {
+        min-width: auto;
+        max-width: 48%;
+        padding: 0.8rem;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+    
+    .family-heading {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    
+    .family-heading::before,
+    .family-heading::after {
+        display: none;
+    }
+    
+    .family-member {
+        flex-direction: row;
+        text-align: left;
+        gap: 0.3rem;
+        margin-bottom: 0.5rem;
+        padding: 0.3rem 0;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+    }
+    
+    .family-member:hover {
+        background: transparent;
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .honorific {
+        margin-right: 0.2rem;
+        margin-bottom: 0;
+        font-size: 0.85rem;
+        min-width: auto;
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        font-weight: 600;
+    }
+    
+    .name {
+        font-size: 0.9rem;
+        line-height: 1.3;
+        font-weight: 500;
+    }
+    
+    .namaste-icon {
+        display: none;
+    }
+    
+    .family-divider {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -938,11 +1474,11 @@ body::before {
         padding: 1rem;
     }
     
-    .ganesh-photo {
-        left: 0.5rem;
+    .ganapati-container {
+        margin-bottom: 0.3rem;
     }
     
-    .ganesh-video {
+    .ganesh-image {
         width: 60px;
         height: 60px;
     }
@@ -952,9 +1488,32 @@ body::before {
         right: 0.5rem;
     }
     
+    .prayer-section {
+        padding: 0.8rem 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .prayer-content {
+        gap: 0.6rem;
+    }
+    
+    .ganapati-container::before {
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+    }
+    
     .prayer-text {
-        font-size: 1.2rem;
-        padding: 0 0.5rem;
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+    
+    .prayer-text::before {
+        top: -6px;
+        left: -12px;
+        right: -12px;
+        bottom: -6px;
     }
     
     .traditional-invitation-section {
@@ -1003,7 +1562,7 @@ body::before {
     
     .section-title {
         font-size: 1.1rem;
-        margin-bottom: 0.8rem;
+        margin-bottom: 1.5rem;
     }
     
     .day-title {
@@ -1071,6 +1630,96 @@ body::before {
     .opening-prayer p {
         font-size: 0.9rem;
         line-height: 1.4;
+    }
+    
+    .mameru-section {
+        padding: 1.2rem 0.8rem;
+    }
+    
+    .mameru-heading {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .mameru-content {
+        padding: 1rem;
+    }
+    
+    .mameru-text {
+        font-size: 0.95rem;
+    }
+    
+    .mameru-names {
+        font-size: 0.9rem;
+    }
+    
+    .mameru-subtext {
+        font-size: 0.85rem;
+    }
+    
+    .sweet-melody-section {
+        padding: 1.2rem 0.8rem;
+    }
+    
+    .sweet-melody-heading {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .sweet-melody-content {
+        padding: 1rem;
+    }
+    
+    .poem-line {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .names-text {
+        font-size: 0.85rem;
+    }
+    
+    .family-section {
+        padding: 1.5rem 0.8rem;
+    }
+    
+    .family-heading {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .family-names {
+        gap: 0.8rem;
+    }
+    
+    .family-column {
+        padding: 0.6rem;
+        max-width: 49%;
+    }
+    
+    .family-member {
+        margin-bottom: 0.3rem;
+        padding: 0.2rem 0;
+    }
+    
+    .honorific {
+        font-size: 0.8rem;
+        min-width: auto;
+        padding: 0;
+        margin-right: 0.15rem;
+    }
+    
+    .name {
+        font-size: 0.85rem;
+        line-height: 1.1;
+    }
+    
+    .namaste-icon {
+        display: none;
+    }
+    
+    .family-divider {
+        display: none;
     }
 }
 
