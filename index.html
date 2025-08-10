@@ -12,6 +12,7 @@
     <!-- Header with Modern Design -->
     <header class="header">
         <div class="mandala-border">
+            <div class="kalash-icon">🏺</div>
             <h1 class="main-title">લગ્નમાં ભાવભર્યું આમંત્રણ</h1>
             <div class="kalash-icon">🏺</div>
         </div>
@@ -32,6 +33,39 @@
                     <img src="ganapati.png" alt="ગણપતિ ભગવાન" class="ganesh-image">
                 </div>
                 <h2 class="prayer-text">|| શ્રી ગણેશાય નમઃ ||</h2>
+                
+                <!-- Ganapati Sloka with Vertical Text -->
+                <div class="sloka-container">
+                    <div class="sloka-left">
+                        <div class="vertical-text">
+                            <span>નિર્વિઘ્નં</span>
+                            <span>કુરુ</span>
+                            <span>મે</span>
+                            <span>દેવ</span>
+                            <span>સર્વકાર્યષુ</span>
+                            <span>સર્વદા</span>
+                            <span>॥</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sloka-center">
+                        <div class="decorative-element">
+                            <div class="om-symbol">ॐ</div>
+                            <div class="swirling-pattern"></div>
+                        </div>
+                        <div class="mataji-text">શ્રી ચામુંડા માતાજી</div>
+                    </div>
+                    
+                    <div class="sloka-right">
+                        <div class="vertical-text">
+                            <span>વક્રતુંડ</span>
+                            <span>મહાકાય</span>
+                            <span>સૂર્યકોટિ</span>
+                            <span>સમપ્રભ:</span>
+                            <span>।</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -157,7 +191,7 @@
 
         <!-- Venue & Directions -->
         <section class="venue-section">
-            <h2 class="section-title">લગ્ન સ્થળ</h2>
+            <h2 class="section-title">શુભ લગ્ન સ્થળ</h2>
             <div class="venue-content">
                 <div class="venue-details">
                     <p><i class="fas fa-home"></i>આસ્થા એન્ટરપ્રાઇઝ પાછળ, તુરખા રોડ – બોટાદ</p>
@@ -312,22 +346,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <audio id="bg-music" src="wedding-music.mp3" autoplay loop>
-        Your browser does not support the audio element.
-    </audio>
-    <button onclick="toggleMusic()" id="music-btn" style="position:fixed;bottom:20px;right:20px;z-index:1000;">🔊</button>
-    <script>
-    function toggleMusic() {
-        var audio = document.getElementById('bg-music');
-        var btn = document.getElementById('music-btn');
-        if (audio.paused) {
-            audio.play();
-            btn.textContent = '🔊';
-        } else {
-            audio.pause();
-            btn.textContent = '🔇';
-        }
-    }
-    </script>
 </body>
-</html> 
+</html>
