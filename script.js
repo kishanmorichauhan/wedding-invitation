@@ -9,6 +9,7 @@ function updateCountdown() {
     const timeDifference = targetDate - now;
 
     if (timeDifference > 0) {
+        // Future date - show countdown
         const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
@@ -32,7 +33,7 @@ function updateCountdown() {
         document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
         document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
         document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-    } else {
+    } else if (timeDifference === 0) {
         // Wedding day has arrived!
         document.getElementById('countdown').innerHTML = `
             <div class="wedding-day-message">
@@ -40,6 +41,12 @@ function updateCountdown() {
                 <p>શુભ લગ્ન!</p>
             </div>
         `;
+    } else {
+        // Past date - hide the entire countdown section
+        const countdownSection = document.querySelector('.countdown-section');
+        if (countdownSection) {
+            countdownSection.style.display = 'none';
+        }
     }
 }
 
