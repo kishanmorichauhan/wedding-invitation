@@ -772,6 +772,7 @@ body::before {
     color: #8b4513;
     margin-bottom: 2rem;
     position: relative;
+    text-align: center;
 }
 
 .section-title::after {
@@ -928,6 +929,14 @@ body::before {
     margin-bottom: 1.5rem;
 }
 
+.venue-subtitle {
+    text-align: center;
+    color: #800000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
 .venue-details p {
     display: flex;
     align-items: center;
@@ -935,6 +944,18 @@ body::before {
     margin-bottom: 0.8rem;
     font-size: 1rem;
     color: #2e2e2e;
+}
+
+.venue-details p a {
+    color: #8b4513;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.venue-details p a:hover {
+    color: #d4af37;
+    text-decoration: underline;
 }
 
 .map-container {
